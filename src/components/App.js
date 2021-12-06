@@ -11,6 +11,12 @@ class App extends React.Component {
         order: {}
     }
 
+    AddToOrder = (key) => {
+        const order = this.state.order;
+        order[key] = order[key] + 1 || 1;
+        this.setState({ order });
+    }
+
     AddBurger = burger => {
         console.log("addBurger", burger)
         const burgers = {...this.state.burgers};
@@ -32,6 +38,7 @@ class App extends React.Component {
                             return <Burger 
                                 key={key} 
                                 index={key} 
+                                addToOrder={this.AddToOrder}
                                 details={this.state.burgers[key]} 
                             />
                         })}
