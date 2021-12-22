@@ -18,7 +18,7 @@ const Burger = props => {
                 <p>{desc}</p>
                 <button 
                 className="buttonOrder" 
-                onClick={props.addToOrder(props.index)}
+                onClick={() => props.addToOrder(props.index)}
                 disabled={!isAvailable}
                 >
                 {isAvailable ? 'Заказать' : "Времеенно нет"}
