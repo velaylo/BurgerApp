@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import AddBurgerForm from './AddBurgerForm';
 import EditBurgerForm from './EditBurgerForm';
 
@@ -21,6 +22,14 @@ const MenuAdmin = props => {
             <button onClick={props.loadSampleBurgers}>Загрузить бургеры</button>
         </div>
     )
+}
+
+MenuAdmin.propTypes = {
+    burgers: propTypes.object,
+    deleteBurger: propTypes.func,
+    updatedBurger: propTypes.func,
+    addBurger: propTypes.func,
+    loadSampleBurgers: propTypes.func
 }
 
 export default MenuAdmin;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import propTypes from 'prop-types';
 import restaurants from '../sample-restaurants';
 
 const Landing = props => {
@@ -43,5 +44,9 @@ const Landing = props => {
         </div>
     )
 } 
+
+Landing.propTypes = {
+    history: propTypes.object
+}
 
 export default Landing
