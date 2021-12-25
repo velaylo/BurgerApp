@@ -7,7 +7,15 @@ const MenuAdmin = props => {
         <div className="menu-admin">
             <h2>Управление меню</h2>
             {Object.keys(props.burgers).map(key => {
-                return <EditBurgerForm key={key} burger={props.burgers[key]} updatedBurger={props.updatedBurger} index={key}/>
+                return (
+                    <EditBurgerForm 
+                        key={key} 
+                        burger={props.burgers[key]} 
+                        updatedBurger={props.updatedBurger} 
+                        index={key}
+                        deleteBurger={props.deleteBurger}
+                    />
+                )
             })}
             <AddBurgerForm addBurger={props.addBurger} />
             <button onClick={props.loadSampleBurgers}>Загрузить бургеры</button>

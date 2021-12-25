@@ -47,6 +47,12 @@ class App extends React.Component {
         this.setState({burgers});
     }
 
+    DeleteBurger = key => {
+        const burgers = {...this.state.burgers};
+        burgers[key] = null;
+        this.setState({burgers});
+    }
+
     LoadSampleBurgers = () => {
         this.setState({ burgers: sampleBurgers })
     }
@@ -54,6 +60,12 @@ class App extends React.Component {
     AddToOrder = key => {
         const order = { ...this.state.order }
         order[key] = order[key] + 1 || 1;
+        this.setState({ order });
+    }
+
+    DeleteFromOrder = key => {
+        const order = { ...this.state.order }
+        delete order[key];
         this.setState({ order });
     }
 
@@ -75,12 +87,13 @@ class App extends React.Component {
                         })}
                     </ul>
                 </div>
-                <Order burgers={this.state.burgers} order={this.state.order} />
+                <Order burgers={this.state.burgers} order={this.state.order} deleteFromOrder={this.DeleteFromOrder} />
                 <MenuAdmin 
                     addBurger={this.AddBurger} 
                     loadSampleBurgers={this.LoadSampleBurgers}
                     burgers={this.state.burgers}
                     updatedBurger={this.UpdatedBurger}
+                    deleteBurger={this.DeleteBurger}
                 />
             </div>
         )
